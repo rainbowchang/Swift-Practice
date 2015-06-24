@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             let mobile = (telElement.elementsForName("mobile")[0] as! GDataXMLElement).stringValue()
             let home = (telElement.elementsForName("home")[0] as! GDataXMLElement).stringValue()
             //输出调试信息
-            println("User: uid:\(uid),uname:\(uname),mobile:\(mobile),home:\(home)")
+            println("User: uid:\(uid),uname:\(uname),mobile phone:\(mobile),home:\(home)")
         }
     }
     
