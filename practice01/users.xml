@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<Users>  
+    <User id="101">
+        <name>小华</name>
+        <tel>
+        	<mobile>13810055000</mobile>
+        	<home>010-88888888</home>
+        </tel>  
+    </User>  
+    <User id="102">
+        <name>小林</name>
+        <tel>
+        	<mobile>13810055001</mobile>
+        	<home>020-88888888</home>
+        </tel> 
+    </User>  
+</Users>

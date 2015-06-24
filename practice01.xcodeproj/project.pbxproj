@@ -16,7 +16,7 @@
 		3EA2AEAF1B3A40EA00BB6477 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2AEAE1B3A40EA00BB6477 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3EA2AEB31B3A464700BB6477 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2AEB21B3A464700BB6477 /* GDataXMLNode.m */; };
 		3EA2AEB51B3A504000BB6477 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA2AEB41B3A504000BB6477 /* libxml2.2.dylib */; };
-		3EA2AEB71B3A515100BB6477 /* users.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3EA2AEB61B3A515100BB6477 /* users.xml */; };
+		3EA991CE1B3A840800033E7A /* users.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3EA991CD1B3A840800033E7A /* users.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		3EA2AEB11B3A464700BB6477 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		3EA2AEB21B3A464700BB6477 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		3EA2AEB41B3A504000BB6477 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		3EA2AEB61B3A515100BB6477 /* users.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = users.xml; path = ../../../../users.xml; sourceTree = "<group>"; };
+		3EA991CD1B3A840800033E7A /* users.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = users.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		3EA2AE8A1B3A409B00BB6477 /* practice01 */ = {
 			isa = PBXGroup;
 			children = (
-				3EA2AEB61B3A515100BB6477 /* users.xml */,
+				3EA991CD1B3A840800033E7A /* users.xml */,
 				3EA2AEB11B3A464700BB6477 /* GDataXMLNode.h */,
 				3EA2AEB21B3A464700BB6477 /* GDataXMLNode.m */,
 				3EA2AEB01B3A410100BB6477 /* Bridging-Header.h */,
@@ -213,7 +213,7 @@
 			files = (
 				3EA2AE931B3A409B00BB6477 /* Main.storyboard in Resources */,
 				3EA2AE981B3A409B00BB6477 /* LaunchScreen.xib in Resources */,
-				3EA2AEB71B3A515100BB6477 /* users.xml in Resources */,
+				3EA991CE1B3A840800033E7A /* users.xml in Resources */,
 				3EA2AE951B3A409B00BB6477 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +450,7 @@
 				3EA2AEA91B3A409B00BB6477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3EA2AEAA1B3A409B00BB6477 /* Build configuration list for PBXNativeTarget "practice01Tests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +459,7 @@
 				3EA2AEAC1B3A409B00BB6477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
