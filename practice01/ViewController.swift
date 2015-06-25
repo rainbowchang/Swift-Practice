@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SystemConfiguration
 
 class ViewController: UIViewController {
+    
+    var t:MyTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +23,34 @@ class ViewController: UIViewController {
         self.view.addSubview(button)
         
         var button2:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button2.frame=CGRectMake(10,250,100,30)
+        button2.frame=CGRectMake(10,200,100,30)
         button2.setTitle("XML", forState: .Normal)
         button2.addTarget(self, action: Selector("tapped2"), forControlEvents: .TouchUpInside)
         self.view.addSubview(button2)
+        
+        var button3:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button3.frame=CGRectMake(10,250,100,30)
+        button3.setTitle("Http client", forState: .Normal)
+        button3.addTarget(self, action: Selector("tapped3"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(button3)
+        
+        var button4:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button4.frame=CGRectMake(10,300,100,30)
+        button4.setTitle("Timer", forState: .Normal)
+        button4.addTarget(self, action: Selector("tapped4"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(button4)
+        
+        var button5:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button5.frame=CGRectMake(10,350,100,30)
+        button5.setTitle("Suspend", forState: .Normal)
+        button5.addTarget(self, action: Selector("tapped5"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(button5)
+        
+        var button6:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        button6.frame=CGRectMake(10,400,100,30)
+        button6.setTitle("network type", forState: .Normal)
+        button6.addTarget(self, action: Selector("tapped6"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(button6)
     }
     
     func tapped(){
@@ -73,9 +100,93 @@ class ViewController: UIViewController {
         }
     }
     
+    func tapped3(){
+        let urlString:String = " "
+        var url: NSURL = NSURL(string: urlString)!
+        let request: NSURLRequest = NSURLRequest(URL: url)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{
+            (response, data, error) -> Void in
+            
+            if (error != nil) {
+                //Handle Error here
+            }else{
+                //Handle data in NSData type
+            }
+            
+        })
+    }
+    
+    func tapped4(){
+        t = MyTimer()
+        t!.doTimer()
+    }
+    
+    func tapped5(){
+        t?.suspend()
+        t = nil
+    }
+    
+    func tapped6(){
+        if(ViewController.isConnectedToNetwork()){
+            ViewController.isConnectedToNetworkOfType()
+        }else{
+            println("无连接")
+        }
+        
+    }
+    
+    class func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0)).takeRetainedValue()
+        }
+        var flags: SCNetworkReachabilityFlags = 0
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) == 0 {
+            return false
+        }
+        let isReachable = (flags & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection) ? true : false
+    }
+    
+    class func isConnectedToNetworkOfType() -> IJReachabilityType {
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0)).takeRetainedValue()
+        }
+        var flags: SCNetworkReachabilityFlags = 0
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) == 0 {
+            println("无连接")
+            return .NotConnected
+        }
+        let isReachable = (flags & UInt32(kSCNetworkFlagsReachable)) != 0
+        let isWWAN = (flags & UInt32(kSCNetworkReachabilityFlagsIsWWAN)) != 0
+        //let isWifI = (flags & UInt32(kSCNetworkReachabilityFlagsReachable)) != 0
+        if(isReachable && isWWAN){
+            println("蜂窝网")
+            return .WWAN
+        }
+        if(isReachable && !isWWAN){
+            println("Wi-Fi")
+            return .WiFi
+        }
+        return .NotConnected
+        //let needsConnection = (flags & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        //return (isReachable && !needsConnection) ? true : false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    enum IJReachabilityType {
+        case WWAN,
+        WiFi,
+        NotConnected
     }
     
 }

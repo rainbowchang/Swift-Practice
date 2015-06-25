@@ -17,6 +17,7 @@
 		3EA2AEB31B3A464700BB6477 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2AEB21B3A464700BB6477 /* GDataXMLNode.m */; };
 		3EA2AEB51B3A504000BB6477 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA2AEB41B3A504000BB6477 /* libxml2.2.dylib */; };
 		3EA991CE1B3A840800033E7A /* users.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3EA991CD1B3A840800033E7A /* users.xml */; };
+		3EA991D01B3AA0CA00033E7A /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA991CF1B3AA0CA00033E7A /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3EA2AEB21B3A464700BB6477 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		3EA2AEB41B3A504000BB6477 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3EA991CD1B3A840800033E7A /* users.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = users.xml; sourceTree = "<group>"; };
+		3EA991CF1B3AA0CA00033E7A /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				3EA2AEAE1B3A40EA00BB6477 /* JSONKit.m */,
 				3EA2AE8D1B3A409B00BB6477 /* AppDelegate.swift */,
 				3EA2AE8F1B3A409B00BB6477 /* ViewController.swift */,
+				3EA991CF1B3AA0CA00033E7A /* Timer.swift */,
 				3EA2AE911B3A409B00BB6477 /* Main.storyboard */,
 				3EA2AE941B3A409B00BB6477 /* Images.xcassets */,
 				3EA2AE961B3A409B00BB6477 /* LaunchScreen.xib */,
@@ -235,6 +238,7 @@
 				3EA2AE901B3A409B00BB6477 /* ViewController.swift in Sources */,
 				3EA2AEB31B3A464700BB6477 /* GDataXMLNode.m in Sources */,
 				3EA2AE8E1B3A409B00BB6477 /* AppDelegate.swift in Sources */,
+				3EA991D01B3AA0CA00033E7A /* Timer.swift in Sources */,
 				3EA2AEAF1B3A40EA00BB6477 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
